@@ -10,8 +10,11 @@ const Navbar = styled.header`
     justify-content: space-around;
     align-items: center;
 
-    h1{
+    a{
         font-weight: 400;
+        color: white;
+        text-decoration: none;
+        font-size: 2.2rem;
     }
 
     ul{
@@ -23,7 +26,11 @@ const Navbar = styled.header`
     ul li a{
         color: white;
         text-decoration: none;
-        
+        font-size: 1.1rem;
+    }
+
+    ul li a:hover{
+        text-decoration: underline 1px;
     }
 
 `
@@ -31,11 +38,11 @@ const Navbar = styled.header`
 function Header() {
     return (
         <Navbar>
-            <h1>Coordinates</h1>
+            <Link to="/">Coordinates</Link>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/contact">Contato</Link></li>
-                <li>Log out</li>
+                <li><Link>Log out</Link></li>
             </ul>
         </Navbar>
     );
