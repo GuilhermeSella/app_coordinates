@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const Navbar = styled.header`
     padding: 15px;
-    background-color: #6809a7;
+    background-color: #3F3D56;
     color: white;
     display: flex;
     justify-content: space-around;
@@ -14,7 +14,7 @@ const Navbar = styled.header`
         font-weight: 400;
         color: white;
         text-decoration: none;
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     ul{

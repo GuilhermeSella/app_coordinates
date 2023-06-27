@@ -4,7 +4,9 @@ import App from './App.jsx'
 import Home from './pages/Home/Home.jsx'
 import Contact from './pages/Contact/Contact.jsx'
 import Inicio from './pages/Inicio/Inicio.jsx'
-import GlobalStyle from './components/GlobalStyle.jsx'
+import GlobalStyle from './components/Global/GlobalStyle.jsx'
+import SignIn from './pages/Login/SignIn.jsx'
+import SignUp from './pages/SignUp/SignUp.jsx'
 import Error from './pages/Error/Error.jsx'
 import { RouterProvider, HashRouter, createBrowserRouter} from 'react-router-dom'
 
@@ -21,12 +23,23 @@ const routes = createBrowserRouter([
       {
         path:"/contact",
         element: <Contact/>
-      }
+      },
+      
     ]
   },
   {
     path:"/inicio",
-    element:<Inicio/>
+    element:<Inicio/>,
+    
+  },
+  
+  {
+    path:"/signin",
+    element:<SignIn/>
+  },
+  {
+    path:"/signup",
+    element: <SignUp/>
   }
   
 ],
