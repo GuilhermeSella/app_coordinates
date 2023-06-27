@@ -10,6 +10,10 @@ import SignUp from './pages/SignUp/SignUp.jsx'
 import Error from './pages/Error/Error.jsx'
 import { RouterProvider, HashRouter, createBrowserRouter} from 'react-router-dom'
 
+
+import AuthProvider from './contexts/auth.jsx'
+
+
 const routes = createBrowserRouter([
   {
     path:"/",
@@ -51,8 +55,12 @@ const routes = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <GlobalStyle/>
-    <RouterProvider router={routes}/>
+   
+    <AuthProvider> 
+      <GlobalStyle/>
+        <RouterProvider router={routes}/>
+    </AuthProvider>
+    
   
   </React.StrictMode>,
 )
