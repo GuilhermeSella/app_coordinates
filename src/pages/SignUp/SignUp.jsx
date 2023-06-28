@@ -3,15 +3,15 @@ import { FormStyle } from '../../components/Form/Login.style';
 import { Link } from 'react-router-dom';
 import signup from './signup.svg'
 import { AuthContext } from '../../contexts/auth';
-
+import {ThemeContext} from '../../contexts/Theme'
 
 
 function SignUp() {
 
-    const [nome, setNome] = useState()
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [confirmPass, setConfirmPass] = useState();
+    const [nome, setNome] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPass, setConfirmPass] = useState('');
 
     const {signUp} = useContext(AuthContext)
 
@@ -22,27 +22,28 @@ function SignUp() {
         }
     }
 
+    const {theme} = useContext(ThemeContext)
 
     return (
-    <FormStyle>
+    <FormStyle theme={theme}>
          <div className='Divform'>
                 <form onSubmit={handleSubmit}>
                     <h1>Sign Up</h1>
                     <div>
                         <label>Nome</label>
-                        <input type="text" required="" onChange={(e) => setNome(e.target.value)}/>
+                        <input type="text"  onChange={(e) => setNome(e.target.value)}/>
                     </div>
                     <div>
                         <label>Email</label>
-                        <input type="email" required="" onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="text"  onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div>
                         <label>Password</label>
-                        <input type="password" name="" id="" required=""  onChange={(e)=> setPassword(e.target.value)}/>
+                        <input type="password" name="" id=""   onChange={(e)=> setPassword(e.target.value)}/>
                     </div>
                     <div>
                         <label>Confirm password</label>
-                         <input type="password" name="" id="" required="" onChange={(e)=>setConfirmPass(e.target.value)}/>
+                         <input type="password" name="" id=""  onChange={(e)=>setConfirmPass(e.target.value)}/>
                     </div>
                     <button type='submit'>Sign up</button>
                     <p>
