@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { FormStyle } from '../../components/Form/Login.style';
 import { Link } from 'react-router-dom';
 import signup from './signup.svg'
-import { AuthContext } from '../../contexts/auth';
+import { AuthContext } from '../../contexts/Auth';
 import {ThemeContext} from '../../contexts/Theme'
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ function SignUp() {
         if(nome !== "" &&  email !== "" && password !== '' && confirmPass !== '' && password === confirmPass){
            await signUp(nome,email,password)
            .then((res)=>{
-                navigate('/')
+                navigate('/home')
            } )
         }
     }

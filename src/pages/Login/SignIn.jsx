@@ -23,7 +23,7 @@ function SignIn(props) {
         if(email !== '' && password !== ''){
           await signIn(email,password)
            .then((res)=>{
-             navigate("/");
+             navigate("/home");
            })
         }
         

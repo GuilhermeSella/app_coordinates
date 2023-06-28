@@ -8,35 +8,20 @@ import GlobalStyle from './components/Global/GlobalStyle.jsx'
 import SignIn from './pages/Login/SignIn.jsx'
 import SignUp from './pages/SignUp/SignUp.jsx'
 import Error from './pages/Error/Error.jsx'
+import Private from './Private.jsx'
 import { RouterProvider, HashRouter, createBrowserRouter} from 'react-router-dom'
 
 import  ThemeProvider from './contexts/Theme.jsx'
-import AuthProvider from './contexts/auth.jsx'
+import AuthProvider from './contexts/Auth.jsx'
 
 
 const routes = createBrowserRouter([
+
   {
     path:"/",
-    element:<App/>,
-    errorElement: <Error/> ,
-    children:[
-      {
-        path:"/",
-        element:<Home/>
-      },
-      {
-        path:"/contact",
-        element: <Contact/>
-      },
-      
-    ]
-  },
-  {
-    path:"/inicio",
     element:<Inicio/>,
     
   },
-  
   {
     path:"/signin",
     element:<SignIn/>
@@ -44,6 +29,16 @@ const routes = createBrowserRouter([
   {
     path:"/signup",
     element: <SignUp/>
+  }, 
+  {
+    path:"/home",
+    element: <Private><App/></Private>,
+    children:[
+        {
+          path:"/home",
+          element:<Home/>
+        }
+    ]
   }
   
 ],
