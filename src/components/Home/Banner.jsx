@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Text = styled.div`
       background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0A0A0A'};
       color: ${(prop)=> prop.theme === 'light'? 'black':"white"};
-    width: 100vw;
+    width: 100%;
     height: 92vh;
     display: flex;
     align-items: center;
