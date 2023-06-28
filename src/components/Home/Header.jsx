@@ -6,6 +6,7 @@ import { ThemeContext } from '../../contexts/Theme';
 
 
 const Navbar = styled.header`
+    
     width: 100%;
     padding: 15px;
     background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0A0A0A'};

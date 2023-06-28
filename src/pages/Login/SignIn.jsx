@@ -4,19 +4,27 @@ import { Link } from 'react-router-dom';
 import Login from './login.svg'
 import {AuthContext } from '../../contexts/Auth'
 import {ThemeContext } from '../../contexts/Theme'
+import { useNavigate } from 'react-router-dom';
+
+
 
 function SignIn(props) {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const {signIn} =  useContext(AuthContext)
+    const {signIn, loadingAuth} =  useContext(AuthContext)
 
-    function handleSignIn(e){
+    const navigate = useNavigate();
+
+   async function handleSignIn(e){
         e.preventDefault();
 
         if(email !== '' && password !== ''){
-            signIn(email,password)
+          await signIn(email,password)
+           .then((res)=>{
+             navigate("/");
+           })
         }
         
 
@@ -38,7 +46,7 @@ function SignIn(props) {
                         <label>Password</label>
                         <input type="password" name="" id="" required="" onChange={(e)=>setPassword(e.target.value)}/>
                     </div>
-                    <button type='submit'>Sign in</button>
+                    <button type='submit'>{loadingAuth === true ? "Loading..." : "Sign in"}</button>
                     <p>
                         Ou <Link to="/signup">cadastre-se</Link>
                     </p>

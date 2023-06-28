@@ -1,7 +1,8 @@
 import {useState, createContext, useEffect} from 'react'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {auth, db} from '../services/Firebase-connection'
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+
 
 export const AuthContext = createContext({});
 
@@ -9,14 +10,35 @@ export const AuthContext = createContext({});
 function AuthProvider({children}){
 
     const [user, setUser] = useState(null)
+
+    const [loadingAuth, setLoadingAuth] = useState(false)
+
     
-    function signIn(email, password){
-        console.log(email)
-        console.log(password)
-        alert("logado")
+    async function signIn(email, password){
+
+        setLoadingAuth(true);
+       await signInWithEmailAndPassword(auth, email, password)
+       .then( async(value)=>{
+            let uid = value.user.uid;
+
+            const docRef = doc(db, "users", uid)
+            const docSnap = await getDoc(docRef)
+
+            let data = {
+                uid: uid,
+                nome: docSnap.data().nome,
+                email: value.user.email,
+                imgUrl: docSnap.data().imgUrl
+            }
+
+            setUser(data);
+            UserStorage(data);
+            setLoadingAuth(false);
+       })
     }
 
     async function signUp(name, email,password){
+        setLoadingAuth(true);
         await createUserWithEmailAndPassword(auth, email, password)
         .then( async (value) =>{
             let uid = value.user.uid
@@ -26,7 +48,17 @@ function AuthProvider({children}){
                 imgUrl:null,
             })
             .then((res)=>{
-                alert("cadastrado com sucesso")
+              let data = {
+                nome: name,
+                email:value.user.email,
+                imgUrl: null
+              }
+              setUser(data)
+              UserStorage(data)
+              setLoadingAuth(false);
+              
+
+
             })
             .catch((error)=>{
                 console.log(error)
@@ -37,13 +69,21 @@ function AuthProvider({children}){
         })
     }
 
+    function UserStorage(data){
+        localStorage.setItem("@userStorage", JSON.stringify(data))
+    }
+
+
+
     return(
         <AuthContext.Provider
             value={{
                 signed: !!user,
                 user,
                 signIn,
-                signUp
+                signUp,
+                loadingAuth,
+                
             }}
         >
             {children}

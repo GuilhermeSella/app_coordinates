@@ -37,7 +37,7 @@ export const FormStyle = styled.div`
         margin-top: 10px;
         font-size: 16px;
         border-radius: 0.375rem;
-        border: 1px solid rgba(55, 65, 81, 1);
+        border: 1px solid #9E30F4;
         outline: 0;
         
         
@@ -54,7 +54,7 @@ export const FormStyle = styled.div`
         padding: 15px 10px;
         font-size: 1.2rem;
         color: white;
-        background-color: #3F3D56;
+        background-color:#9E30F4;
         border-radius: 0.375rem;
    }
 

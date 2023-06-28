@@ -46,7 +46,7 @@ const Div = styled.main`
         text-decoration: none;
         font-size: 1.1rem;
         padding: 16px 20px;
-        background-color: #3F3D56;
+        background-color: #9E30F4;
         border-radius: 10px;
         transition: .9s;
     }
@@ -61,7 +61,7 @@ const Div = styled.main`
         cursor: pointer;
         font-size: 18px;
         padding: 10px 5px;
-        background-color: #3F3D56;
+        background-color: #9E30F4;
         color: white;
         border: none;
         border-radius: 10px;

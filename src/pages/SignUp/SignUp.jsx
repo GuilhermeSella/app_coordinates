@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import signup from './signup.svg'
 import { AuthContext } from '../../contexts/auth';
 import {ThemeContext} from '../../contexts/Theme'
-
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
 
@@ -13,12 +13,17 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
 
-    const {signUp} = useContext(AuthContext)
+    const {signUp, loadingAuth} = useContext(AuthContext)
+    
+        const navigate = useNavigate();
 
-    function handleSubmit(e){
+   async function handleSubmit(e){
         e.preventDefault()
         if(nome !== "" &&  email !== "" && password !== '' && confirmPass !== '' && password === confirmPass){
-            signUp(nome,email,password)
+           await signUp(nome,email,password)
+           .then((res)=>{
+                navigate('/')
+           } )
         }
     }
 
@@ -45,7 +50,7 @@ function SignUp() {
                         <label>Confirm password</label>
                          <input type="password" name="" id=""  onChange={(e)=>setConfirmPass(e.target.value)}/>
                     </div>
-                    <button type='submit'>Sign up</button>
+                    <button type='submit'>{loadingAuth === true ? "Loading..." : "Sign up"}</button>
                     <p>
                         Já possui uma conta? <Link to="/signin">Login</Link>
                     </p>
