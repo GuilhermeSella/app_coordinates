@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const FormStyle = styled.div`
     width: 100vw;
+    background-color: ${(prop)=> prop.theme === "light" ? 'white' : '#0A0A0A' };
+    color: ${(prop)=> prop.theme === "light" ? 'black' : 'white'};
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -37,9 +39,9 @@ export const FormStyle = styled.div`
         border-radius: 0.375rem;
         border: 1px solid rgba(55, 65, 81, 1);
         outline: 0;
-      
         
-        background: transparent;
+        
+        
     }
     .Divform form div label{
         font-size: 1.2rem;

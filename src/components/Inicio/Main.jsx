@@ -2,9 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import imgInicio from './inicio.svg'
+import { useContext } from 'react';
+
+import { ThemeContext } from '../../contexts/Theme';
+
+
+
+
 const Div = styled.main`
     width: 100vw;
     height: 100vh;
+    background-color: ${(theme) => theme.theme === "light" ? 'white' : '#0A0A0A'};
+    color: ${(prop)=> prop.theme === 'light'? 'black':"white"};
     display: flex;
     justify-content: center;
     gap: 10%;
@@ -46,11 +55,30 @@ const Div = styled.main`
     {
         transform: translateY(-4px);
     }
+
+
+    .btnTheme{
+        cursor: pointer;
+        font-size: 18px;
+        padding: 10px 5px;
+        background-color: #3F3D56;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        transition: .9s;
+    }
+    .btnTheme:hover{
+        transform: translateY(-4px);
+    }
 `
 
 function Main(props) {
+
+    const {theme, toggleTheme} = useContext(ThemeContext)
+
+
     return (
-        <Div>
+        <Div theme = {theme}>
             <div className='text'>
                 <h1>Descubra coordenadas exatas e veja quando quiser</h1>
                 <p>Registre-se para continuar...</p>
@@ -62,7 +90,9 @@ function Main(props) {
             </div>
             <div>
                 <img src={imgInicio} alt="" />
+                <button className='btnTheme' onClick={toggleTheme}>Change Theme</button>
             </div>
+          
         </Div>
     );
 }

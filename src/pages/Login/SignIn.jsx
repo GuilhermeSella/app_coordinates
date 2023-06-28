@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { FormStyle } from '../../components/Form/Login.style';
 import { Link } from 'react-router-dom';
 import Login from './login.svg'
-import {AuthContext } from '../../contexts/auth'
-
+import {AuthContext } from '../../contexts/Auth'
+import {ThemeContext } from '../../contexts/Theme'
 
 function SignIn(props) {
 
@@ -22,8 +22,10 @@ function SignIn(props) {
 
     }
 
+    const {theme} = useContext(ThemeContext);
+
     return (
-        <FormStyle>
+        <FormStyle theme={theme}>
            
             <div className='Divform'>
                 <form onSubmit={handleSignIn} >
