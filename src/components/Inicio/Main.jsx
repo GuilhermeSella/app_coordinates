@@ -90,7 +90,7 @@ function Main(props) {
             </div>
             <div>
                 <img src={imgInicio} alt="" />
-                <button className='btnTheme' onClick={toggleTheme}>Change Theme</button>
+                
             </div>
           
         </Div>
