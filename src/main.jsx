@@ -12,7 +12,7 @@ import { RouterProvider, HashRouter, createBrowserRouter} from 'react-router-dom
 import './main.css'
 import DarkModeProvider from './contexts/Theme.jsx'
 import AuthProvider from './contexts/Auth.jsx'
-
+import Queryprovider from './contexts/Query.jsx'
 
 const routes = createBrowserRouter([
 
@@ -59,8 +59,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    <DarkModeProvider>
    
     <AuthProvider> 
+       <Queryprovider>
           <RouterProvider router={routes}/>
-          
+        </Queryprovider>   
       </AuthProvider>
    </DarkModeProvider>
     

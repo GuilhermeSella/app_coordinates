@@ -53,7 +53,10 @@ export const Div = styled.div`
         margin: auto;
     }
 
-
+    .readOnly{
+        background-color: #d1cfcfee;
+        
+    }
 
     .img{
         width: 90%;
