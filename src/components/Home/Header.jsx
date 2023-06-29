@@ -75,16 +75,16 @@ function Header() {
            <div>
            <Link to="/">Coordinates</Link>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/">Contato</Link></li>
-                <li><Link onClick={()=> {
-                    navigate("/")
-                    LogOut()
-                }}>Log out</Link></li>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/">Profile</Link></li>
+                <li><Link to="/">Salvos</Link></li>
             </ul>
            
            </div>
-           <Link className='button'>Get Start</Link>
+           <Link className='button' onClick={()=> {
+                    navigate("/")
+                    LogOut()
+                }}>Log Out</Link>
         </Navbar>
     );
 }

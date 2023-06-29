@@ -48,7 +48,7 @@ function Banner(props) {
                 <h1>
                     Descubra a sua exata <b>coordenada</b> e veja quando quiser!
                 </h1>
-                <Link className='button'>
+                <Link to="/home/coordinates" className='button'>
                     Try Now
                 </Link>
             </Text>
