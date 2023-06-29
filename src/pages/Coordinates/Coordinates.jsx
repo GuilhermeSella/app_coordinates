@@ -11,8 +11,14 @@ function Coordinates(props) {
 
     const {getCoordinates} = useContext(QueryContext)
 
-    function handleSubmit(e){
-        let coordenadas = getCoordinates(adress)
+    async function handleSubmit(e){
+        
+        e.preventDefault();
+        let coordenadas =  await getCoordinates(adress)
+     
+        setLat(coordenadas.lat)
+        setLng(coordenadas.lng)
+
     }
 
     return (
@@ -32,11 +38,11 @@ function Coordinates(props) {
                     <div className='divCoordenada'>
                         <div>
                             <label htmlFor="">Latitude</label>
-                            <input type="text" name="" readOnly className='readOnly' id="" />
+                            <input type="text" name="" value={lat} className='readOnly' id="" />
                         </div>
                         <div>
                             <label htmlFor="">Longitude</label>
-                            <input type="text" name="" readOnly className='readOnly' id="" />
+                            <input type="text" name="" value={lng} className='readOnly' id="" />
                         </div>
                     </div>
                     <button type='submit'>Buscar</button>
