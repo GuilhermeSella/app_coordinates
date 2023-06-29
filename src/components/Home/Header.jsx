@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/Theme';
-
+import { AuthContext } from '../../contexts/Auth';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = styled.header`
     
@@ -65,14 +66,21 @@ function Header() {
 
     const { theme} = useContext(ThemeContext);
 
+    const { LogOut} = useContext(AuthContext)
+
+    const navigate = useNavigate();
+
     return (
         <Navbar theme={theme}>
            <div>
            <Link to="/">Coordinates</Link>
             <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/contact">Contato</Link></li>
-                <li><Link>Log out</Link></li>
+                <li><Link to="/">Contato</Link></li>
+                <li><Link onClick={()=> {
+                    navigate("/")
+                    LogOut()
+                }}>Log out</Link></li>
             </ul>
            
            </div>

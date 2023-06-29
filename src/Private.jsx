@@ -5,18 +5,15 @@ import {Navigate} from 'react-router-dom'
 
 export default function Private({children}) {
 
-    const { signed } = useContext(AuthContext)
-
     
-
-    if(!signed){
+    const logado = localStorage.getItem("@userStorage","logado")
+  
+    if(!logado){
         
         return <Navigate to="/"/>
        
     }
-    
-
-    return children
+   return children
 }
 
 

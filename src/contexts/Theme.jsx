@@ -2,7 +2,7 @@ import {useState, createContext} from 'react'
 
 export const ThemeContext = createContext();
 
-const ThemeProvider = ({children})=>{
+const DarkModeProvider = ({children})=>{
 
     const [theme, setTheme] = useState("light")
 
@@ -17,4 +17,4 @@ const ThemeProvider = ({children})=>{
     )
 }
 
-export default ThemeProvider
+export default DarkModeProvider
