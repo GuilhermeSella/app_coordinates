@@ -31,6 +31,7 @@ export const Div = styled.div`
     .formulario form div label{
         font-size: 1.25rem;
         padding-bottom: 20px;
+        font-weight: bold;
     }
 
     .formulario form div input{
@@ -66,6 +67,9 @@ export const Div = styled.div`
         overflow: hidden;
         width: 90%;
         max-width: 500px;
+    }
+    .divImg .img{
+        width: 400px;
     }
    
    

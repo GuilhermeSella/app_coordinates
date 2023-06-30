@@ -15,7 +15,6 @@ function Coordinates(props) {
         
         e.preventDefault();
         let coordenadas =  await getCoordinates(adress)
-     
         setLat(coordenadas.lat)
         setLng(coordenadas.lng)
 
@@ -30,33 +29,30 @@ function Coordinates(props) {
                         <label htmlFor="">Digite um endereço:</label>
                         <input type="text" name="" id="" onChange={(e)=>setAdress(e.target.value)}  />
                     </div>
-                    {/* <div>
-                        <label htmlFor="">Digite um endereço:</label>
-                        <input type="text" name="" id=""  />
-                    </div> */}
+                
 
                     <div className='divCoordenada'>
                         <div>
                             <label htmlFor="">Latitude</label>
-                            <input type="text" name="" value={lat} readOnly className='readOnly' id="" />
+                            <input type="text" name="" value={lat} readOnly className='readOnly'/>
                         </div>
                         <div>
                             <label htmlFor="">Longitude</label>
-                            <input type="text" name="" value={lng} readOnly className='readOnly' id="" />
+                            <input type="text" name="" value={lng} readOnly className='readOnly'/>
                         </div>
                     </div>
                     <button type='submit'>Buscar</button>
                 </form>
             </div>
             <div className='divImg'>
-                {/* <img className='img' src={ loading === false ? src : googleapi} alt="" /> */}
+              
                 <iframe 
                 width="500"
                 height="450"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAOVP34rrUDy5SUbq9P0n75CWNDcO92Dt8&q=Avenida%20Paula%20Ferreira%20207%" frameBorder="0">
-
+                src={src}
+                frameBorder="0">
                 </iframe>
-                {/* <h2>{loading === false ? "" : "Carregando..."}</h2> */}
+             
             </div>
        </Div>
     );

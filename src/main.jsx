@@ -8,6 +8,7 @@ import SignIn from './pages/Login/SignIn.jsx'
 import SignUp from './pages/SignUp/SignUp.jsx'
 import Account from './pages/Account/Account.jsx'
 import Error from './pages/Error/Error.jsx'
+import Saved from './pages/Saved/Saved.jsx'
 import Private from './Private.jsx'
 import { RouterProvider, HashRouter, createBrowserRouter} from 'react-router-dom'
 import './main.css'
@@ -19,6 +20,7 @@ const routes = createBrowserRouter([
 
   {
     path:"/",
+    errorElement:<Error /> ,
     element:<Inicio/>,
     
   },
@@ -45,6 +47,10 @@ const routes = createBrowserRouter([
         {
           path:"/home/account",
           element:<Account/>
+        },
+        {
+          path:"/home/saved",
+          element: <Saved/>
         }
     ]
   }

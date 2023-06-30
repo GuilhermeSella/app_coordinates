@@ -11,7 +11,7 @@ const Navbar = styled.header`
     width: 100%;
     padding: 15px;
     background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0A0A0A'};
-    box-shadow: 1px 2px #0a0a0a39;
+   
    gap: 13%;
     display: flex;
     justify-content: space-around;
@@ -73,11 +73,11 @@ function Header() {
     return (
         <Navbar theme={theme}>
            <div>
-           <Link to="/">Coordinates</Link>
+           <Link to="/home">Coordinates</Link>
             <ul>
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/home/account">Profile</Link></li>
-                <li><Link to="/">Salvos</Link></li>
+                <li><Link to="/home/saved">Salvos</Link></li>
             </ul>
            
            </div>
