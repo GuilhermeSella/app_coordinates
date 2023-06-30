@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Div } from '../../components/Coordinates/Coordinates.style';
 import { QueryContext } from '../../contexts/Query';
-import googleapi from './googleapi.svg'
+
 
 function Coordinates(props) {
 
@@ -9,7 +9,7 @@ function Coordinates(props) {
     const [lat, setLat] = useState();
     const [lng , setLng] = useState();
 
-    const {getCoordinates} = useContext(QueryContext)
+    const {getCoordinates, src, loading} = useContext(QueryContext)
 
     async function handleSubmit(e){
         
@@ -30,10 +30,10 @@ function Coordinates(props) {
                         <label htmlFor="">Digite um endereço:</label>
                         <input type="text" name="" id="" onChange={(e)=>setAdress(e.target.value)}  />
                     </div>
-                    <div>
+                    {/* <div>
                         <label htmlFor="">Digite um endereço:</label>
                         <input type="text" name="" id=""  />
-                    </div>
+                    </div> */}
 
                     <div className='divCoordenada'>
                         <div>
@@ -49,7 +49,7 @@ function Coordinates(props) {
                 </form>
             </div>
             <div>
-                <img className='img' src={googleapi} alt="" />
+                <img className='img' src={ src} alt="" />
             </div>
        </Div>
     );
