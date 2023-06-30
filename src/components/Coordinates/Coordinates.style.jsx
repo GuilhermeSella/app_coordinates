@@ -5,8 +5,12 @@ export const Div = styled.div`
     height: 80vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-bottom: 12vh;
+    justify-content: space-evenly;
+    margin-top: 5vh;
+    margin-bottom: 8vh;
+    flex-wrap: wrap-reverse;
+    
+    gap: 60px;
 
     h1{
         padding-bottom: 5vh;
@@ -58,8 +62,14 @@ export const Div = styled.div`
         
     }
 
-    .img{
+    .divImg{
+        overflow: hidden;
         width: 90%;
-        max-width: 450px;
+        max-width: 500px;
     }
+   
+   
+    
+
+    
 `

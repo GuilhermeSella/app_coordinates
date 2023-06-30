@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 
 export const QueryContext = createContext();
-import googleapi from './googleapi.svg'
+
 const Queryprovider = ({children}) =>{
 
     const [src, setSrc] = useState("")
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState();
 
     //API KEY : AIzaSyAOVP34rrUDy5SUbq9P0n75CWNDcO92Dt8
     var apiKey = 'AIzaSyAOVP34rrUDy5SUbq9P0n75CWNDcO92Dt8'

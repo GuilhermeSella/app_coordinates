@@ -76,7 +76,7 @@ function Header() {
            <Link to="/">Coordinates</Link>
             <ul>
                 <li><Link to="/home">Home</Link></li>
-                <li><Link to="/">Profile</Link></li>
+                <li><Link to="/home/account">Profile</Link></li>
                 <li><Link to="/">Salvos</Link></li>
             </ul>
            
