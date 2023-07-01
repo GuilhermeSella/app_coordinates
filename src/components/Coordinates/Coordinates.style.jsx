@@ -71,6 +71,8 @@ export const Div = styled.div`
     .divImg .img{
         width: 400px;
     }
+
+    
    
    
     
