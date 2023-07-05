@@ -81,7 +81,7 @@ function AuthProvider({children}){
             logado: false,
           }
         setUser(data)
-        UserStorage(data)
+        localStorage.clear("@userStorage")
         alert("saindo")
     }
 

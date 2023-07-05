@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import imgInicio from './inicio.svg'
 import { useContext } from 'react';
-
+import { Navigate } from 'react-router-dom';
 import { ThemeContext } from '../../contexts/Theme';
 
 
@@ -16,15 +16,20 @@ const Div = styled.main`
     color: ${(prop)=> prop.theme === 'light'? 'black':"white"};
     display: flex;
     justify-content: center;
-    gap: 10%;
+    flex-wrap: wrap-reverse;
+    margin-bottom: 6vh;
     align-items: center;
+    
+   
 
     div img{
+        width: 80vw;
         max-width: 400px;
         transition: .9s;
     }
 
     .text{
+        width: 75vw;
         max-width: 450px;
     }
     .text h1{
@@ -75,6 +80,15 @@ const Div = styled.main`
 function Main(props) {
 
     const {theme, toggleTheme} = useContext(ThemeContext)
+
+
+    const logado = localStorage.getItem("@userStorage","logado")
+  
+    if(logado){
+        
+        return <Navigate to="/home"/>
+       
+    }
 
 
     return (
