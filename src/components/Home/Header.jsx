@@ -12,9 +12,9 @@ const Navbar = styled.header`
     padding: 15px;
     background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0A0A0A'};
    
-   gap: 13%;
+    gap: 13%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 
     div{
@@ -34,28 +34,26 @@ const Navbar = styled.header`
     }
     
 
-    ul{
+    .navIcons{
         display: flex;
-        gap: 30px;
-        list-style: none;
-    }
-
-    ul li a{
-      
-        text-decoration: none;
-        font-size: 1.3rem;
+        align-items: center;
+        gap: 35px;
     }
 
     .button{
         font-size: 18px;
         border-radius: 10px;
         font-weight: normal;
-        background-color: #9E30F4;
+       transition: .5s;
         color: white;
-        padding: 12px 15px;
+        
     }
     .button:hover{
-        color: white;
+        transform: translateY(-2px);
+    }
+    .button span{
+        color: #9E30F4;
+        font-size: 2rem;
     }
 
     @media screen and (max-width:860px) {
@@ -78,20 +76,31 @@ function Header() {
         <Navbar theme={theme}>
            <div>
             <Link to="/home">Coordinates</Link>
-            <ul className='list'>
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/home/account">Profile</Link></li>
-                <li><Link to="/home/saved">Salvos</Link></li>
-            </ul>
-           
-           
-
            </div>
-           <Link className='button' onClick={()=> {
-                    navigate("/")
-                    LogOut()
-                }}>Log Out
-            </Link>
+           
+           <nav className='navIcons'>
+
+                <Link className='button' to="/home/account">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                </Link>
+
+                <Link className='button' to="/home/saved">
+                    <span class="material-symbols-outlined">
+                    bookmark
+                    </span>
+                </Link>
+
+                <Link className='button' onClick={()=> {
+                navigate("/")
+                LogOut()}}>
+                    <span class="material-symbols-outlined">
+                    logout
+                    </span>
+                </Link>
+           </nav>
+            
 
 
 
