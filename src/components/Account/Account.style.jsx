@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
+
 export const Main = styled.main`
-  
+  background-color: ${(prop) => prop.theme === "light" ? "white" : "#0a0a0af7"};
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-    padding: 6vh 0vh 20vh 0vh;
+  padding: 6vh 0vh 25vh 0vh;
 `
 
 export const Profilepic = styled.div`
@@ -47,23 +47,30 @@ export const FormProfile = styled.div`
         gap: 10px;
     }
     div label{
+        color: #9E30F4;
         font-weight: bold;
         font-size: 18px;
     }
     div input{
         padding: 8px;
+        color: ${(prop)=> prop.theme === "light" ? "black" : "white"};
+        background-color: transparent;
         font-size: 1.1rem;
         outline: none;
-        border: 2px solid black;
+        border: 2px solid #9E30F4;
         border-radius: 7px;
     }
 
-    div select{
-        padding: 8px;
-        font-size: 1.1rem;
-        outline: none;
-        border: 2px solid black;
-        border-radius: 7px;
+    .divToggleTheme{
+        padding: 20px 0 ;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+       justify-content: space-evenly;
+       
+    }
+    .toggleTheme{
+        
     }
 
     button{
@@ -75,5 +82,9 @@ export const FormProfile = styled.div`
         color: white;
         border: none;
         font-size: 1.2rem;
+    }
+
+    .delete{
+        color: red;
     }
 `

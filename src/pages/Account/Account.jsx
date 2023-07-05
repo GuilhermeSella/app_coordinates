@@ -7,11 +7,11 @@ import AvatarImg from './avatar.png'
 
 function Account(props) {
 
-    const { theme} = useContext(ThemeContext);
+    const { theme, toggleTheme} = useContext(ThemeContext);
 
 
     return (
-        <Main>
+        <Main theme={theme}>
             <Profilepic>
                 <img src={AvatarImg} alt="" />
                 <a href="">Alterar avatar</a>
@@ -27,16 +27,13 @@ function Account(props) {
                     <input type="email" name="" id="" />
                 </div>
                 <h1>Preferências</h1>
-                <div>
-                    <label htmlFor="">Theme:</label>
-                    <select name="" id="">
-                        <option value="">Light</option>
-                        <option value="">Dark</option>
-                        
-                    </select>
+                <div className='divToggleTheme'>
+                    <label htmlFor="">Tema:</label>
+                    <button className='toggleTheme' onClick={toggleTheme}>{theme === "light" ? "dark" : "light"}</button>
                 </div>
 
-                <button>Salvar</button>
+                <button >Salvar</button>
+                <a href="" className='delete'>Excluir conta</a>
             </FormProfile>
         </Main>
     );

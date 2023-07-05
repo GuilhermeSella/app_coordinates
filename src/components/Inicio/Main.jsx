@@ -12,28 +12,30 @@ import { ThemeContext } from '../../contexts/Theme';
 const Div = styled.main`
     width: 100vw;
     height: 100vh;
-    background-color: ${(theme) => theme.theme === "light" ? 'white' : '#0A0A0A'};
+    background-color: ${(theme) => theme.theme === "light" ? 'white' : '#0a0a0af7'};
     color: ${(prop)=> prop.theme === 'light'? 'black':"white"};
     display: flex;
     justify-content: center;
-    flex-wrap: wrap-reverse;
-    margin-bottom: 6vh;
     align-items: center;
+    flex-wrap: wrap-reverse;
+    padding: 0 30px 7vh 30px;
+    
     
    
 
     div img{
+        
         width: 80vw;
         max-width: 400px;
         transition: .9s;
     }
 
     .text{
-        width: 75vw;
-        max-width: 450px;
+       max-width: 450px;
+       
     }
     .text h1{
-        font-size: 2.8rem;
+        font-size: 2.4rem;
     }
     .text p{
         padding: 20px 0px;
@@ -54,6 +56,7 @@ const Div = styled.main`
         background-color: #9E30F4;
         border-radius: 10px;
         transition: .9s;
+        font-weight: bold;
     }
     .links a:hover,
     img:hover
@@ -75,6 +78,15 @@ const Div = styled.main`
     .btnTheme:hover{
         transform: translateY(-4px);
     }
+
+    @media screen and (max-width:500px){
+
+        div img{
+            padding-top: 60px;
+        }
+        
+
+    }
 `
 
 function Main(props) {
@@ -94,9 +106,10 @@ function Main(props) {
     return (
         <Div theme = {theme}>
             <div className='text'>
-                <h1>Descubra coordenadas exatas e veja quando quiser</h1>
-                <p>Registre-se para continuar...</p>
               
+               <h1>Descubra coordenadas exatas e veja quando quiser</h1>
+                <p>Registre-se para continuar...</p>
+
                 <div className='links'>
                     <Link to="/signin">Sign in</Link>
                     <Link to="/signup">Sign up</Link>

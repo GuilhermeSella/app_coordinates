@@ -2,25 +2,31 @@ import styled from "styled-components";
 
 export const FormStyle = styled.div`
     width: 100vw;
-    background-color: ${(prop)=> prop.theme === "light" ? 'white' : '#0A0A0A' };
+    background-color: ${(prop)=> prop.theme === "light" ? 'white' : '#0a0a0af7' };
     color: ${(prop)=> prop.theme === "light" ? 'black' : 'white'};
     height: 100vh;
     display: flex;
+    flex-wrap: wrap-reverse;
+    
     justify-content: center;
     align-items: center;
-    
+    padding: 5vh 0;
 
     .Divform{
-        width: 30%;
+        width: 90%;
+        max-width: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .Divform form{
-        max-width: 450px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 15px;
     }
     .Divform form h1{
         font-size: 2.6rem;
@@ -35,7 +41,7 @@ export const FormStyle = styled.div`
     .Divform form div input{
         padding: 0.75rem 1rem;
         margin-top: 10px;
-        font-size: 16px;
+        font-size: 22px;
         border-radius: 0.375rem;
         border: 1px solid #9E30F4;
         outline: 0;
@@ -58,11 +64,33 @@ export const FormStyle = styled.div`
         border-radius: 0.375rem;
    }
 
+   .Divform form p{
+        font-size: 1rem;
+        font-weight: bold;
+   }
+
+   .Divform form p a{
+        color: #9E30F4;
+   }
+   
+
     
+   .img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
 
     .img img{
         transition: ease .5s;
-        width: 400px;
+        width: 70%;
+        max-width: 550px;
+    }
+
+    @media screen and (max-width: 1100px) {
+        .img{
+            display: none;
+        }
     }
 
    
