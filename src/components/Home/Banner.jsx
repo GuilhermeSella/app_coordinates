@@ -12,16 +12,19 @@ const Text = styled.div`
     align-items: center;
     flex-direction: column;
     gap: 40px;
+    padding: 10px;
     justify-content: center;
 
     h1{
         text-align: center;
-        font-size: 3.8rem;
+        font-size: 2.9rem;
         width: 90%;
-        max-width: 1000px;
+        min-width: 300px;
+        max-width: 550px;
     }
      h1 b{
         color: '#9E30F4';
+        
      }
 
      .button{

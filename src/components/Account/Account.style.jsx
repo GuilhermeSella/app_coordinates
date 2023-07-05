@@ -1,120 +1,79 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    
-    
-    width: 100%;
-    margin-top: 50px ;
-    padding: 0px 20px;
-
   
-    
-    h1{
-        text-align: center;
-    }
-
-    .div{
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        padding: 100px 0px  ;
-        flex-wrap: wrap-reverse;
-    }
-
-    
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+    padding: 6vh 0vh 20vh 0vh;
 `
 
-export const Informacoes = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    
-    .Pessoais{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .Pessoais h2{
-        color: #9E30F4;
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-    }
-    .Pessoais label{
-        font-size: 1rem;
-        font-weight: bolder;
-    }
-    .Pessoais input{
-        padding: 5px;
-        border-radius: 6px;
-        outline: none;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-
-    .Preferencias{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .Preferencias h2{
-        color: #9E30F4;
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-    }
-
-    .Preferencias label{
-        font-size: 1rem;
-        font-weight: bolder;
-    }
-
-    .Preferencias select{
-        padding: 5px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        border-radius: 6px;
-        outline: none;
-        border: 2px solid black;
-        font-weight: bold;
-    }
-`
-
-
-
-
-export const ProfilePic = styled.div`
+export const Profilepic = styled.div`
+    padding: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
 
+     img{
+        width:250px;
+        
+        height:230px;
+     }
+`
+export const FormProfile = styled.div`
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
 
-    .picture{
+    h1{
+        text-align: center;
+        font-size: 1.7rem;
+        color: #9E30F4;
+    }
+
+    div{
+        width: 90%;
+        max-width: 500px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        gap: 10px;
     }
-`
+    div label{
+        font-weight: bold;
+        font-size: 18px;
+    }
+    div input{
+        padding: 8px;
+        font-size: 1.1rem;
+        outline: none;
+        border: 2px solid black;
+        border-radius: 7px;
+    }
 
-export const Buttons = styled.div`
-    display: flex;
-    gap: 10px;
+    div select{
+        padding: 8px;
+        font-size: 1.1rem;
+        outline: none;
+        border: 2px solid black;
+        border-radius: 7px;
+    }
 
     button{
         cursor: pointer;
-        font-weight: bolder;
-        font-size: 1rem;
-        color: white;
-        padding: 15px 20px;
+        padding: 15px 50px;
         border-radius: 10px;
-    }
-    .btnSalvar{
+        font-weight: bold;
         background-color: #9E30F4;
-        border: #9E30F4;
-    }
-    .btnExcluir{
-        background-color: red;
-        border: red;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
     }
 `

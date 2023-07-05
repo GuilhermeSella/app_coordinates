@@ -23,16 +23,16 @@ const Navbar = styled.header`
         gap: 80px;
     }
 
+ 
+
     a{
         font-weight: bold;
-        color: ${(prop)=> prop.theme === 'light'? '#9E30F4':"white"};
+        color: #9E30F4;
         text-decoration: none;
         font-size: 2.5rem;
         transition: .5s;
     }
-    a:hover{
-        color: #9E30F4;
-    }
+    
 
     ul{
         display: flex;
@@ -58,7 +58,11 @@ const Navbar = styled.header`
         color: white;
     }
 
-    
+    @media screen and (max-width:860px) {
+        .button, .list{
+            display: none;
+        }
+    }
 
 `
 
@@ -73,18 +77,25 @@ function Header() {
     return (
         <Navbar theme={theme}>
            <div>
-           <Link to="/home">Coordinates</Link>
-            <ul>
+            <Link to="/home">Coordinates</Link>
+            <ul className='list'>
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/home/account">Profile</Link></li>
                 <li><Link to="/home/saved">Salvos</Link></li>
             </ul>
            
+           
+
            </div>
            <Link className='button' onClick={()=> {
                     navigate("/")
                     LogOut()
-                }}>Log Out</Link>
+                }}>Log Out
+            </Link>
+
+
+
+
         </Navbar>
     );
 }

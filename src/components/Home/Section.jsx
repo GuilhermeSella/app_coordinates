@@ -12,27 +12,32 @@ const Div = styled.section`
     
     gap: 20px;
     align-items: center;
-    padding:  250px 10px;
+    padding:  200px 10px;
     flex-wrap: wrap;
 `
 
 const Card = styled.div`
-    width:70vw ;
+    width:80vw ;
     max-width: 350px;
-    height: 48vh;
+    height: 50vh;
     background-color: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 35px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     img{
         width: 100%;
-        height: 65%;
+        height: 70%;
     }
 
     p{
-        padding-top: 10px;
+       
         font-size: 1.2rem;
+        
     }
 `
 

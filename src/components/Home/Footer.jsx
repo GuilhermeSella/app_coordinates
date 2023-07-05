@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 const Div = styled.footer`
-   position: absolute;
-   top: 100%;
+  
     background-color: #101010f7;
     width: 100%;
     padding: 12px 0px;
@@ -12,6 +11,7 @@ const Div = styled.footer`
     color: white;
     p{
         font-weight: bold;
+        font-size: 13px;
         
     }
 
