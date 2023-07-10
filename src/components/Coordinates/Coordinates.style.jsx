@@ -17,10 +17,14 @@ export const Div = styled.div`
         font-size: 2.3rem;
     }
 
+    .formulario{
+        width: 90%;
+        max-width: 540px;
+    }
     .formulario form{
         display: flex;
         flex-direction: column;
-        
+        width: 100%;
         gap: 20px;
     }
     .formulario form div{
@@ -43,7 +47,9 @@ export const Div = styled.div`
 
     .formulario form .divCoordenada{
         gap: 10px;
+       
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .formulario form button{
@@ -71,6 +77,7 @@ export const Div = styled.div`
     .divImg .img{
         width: 400px;
     }
+
 
     
    

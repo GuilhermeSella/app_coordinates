@@ -100,6 +100,7 @@ function AuthProvider({children}){
                 signUp,
                 loadingAuth,
                 LogOut,
+                UserStorage
             }}
         >
             {children}

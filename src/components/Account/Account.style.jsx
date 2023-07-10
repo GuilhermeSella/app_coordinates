@@ -52,12 +52,11 @@ export const FormProfile = styled.div`
         font-size: 18px;
     }
     div input{
-        padding: 8px;
-        color: ${(prop)=> prop.theme === "light" ? "black" : "white"};
-        background-color: transparent;
+        padding: 10px;
+        background-color: white;
         font-size: 1.1rem;
         outline: none;
-        border: 2px solid #9E30F4;
+        border: 3px solid #9E30F4;
         border-radius: 7px;
     }
 
