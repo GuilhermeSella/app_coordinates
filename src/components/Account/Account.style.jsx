@@ -19,10 +19,32 @@ export const Profilepic = styled.div`
     width: 100%;
     overflow: hidden;
 
+    label{
+        width: 250px;
+        height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        align-items: center;
+    }
+
      img{
         width:250px;
-        
+        border-radius: 50%;
         height:230px;
+       
+     }
+     label input{
+      display: none;
+       
+     }
+     span{
+        position: absolute;
+        transition: 0.9s;
+     }
+     label:hover span{
+        transform: scale(1.6);
      }
 `
 export const FormProfile = styled.div`
