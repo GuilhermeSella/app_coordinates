@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
+    background-color:${(prop)=>prop.theme === 'light' ? 'white' : "#0a0a0af7"} ;
+    color: ${(prop)=>prop.theme === 'light' ? 'black' : "white"};
     width: 100%;
-    height: 80vh;
+   height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 5vh;
-    margin-bottom: 8vh;
-    flex-wrap: wrap-reverse;
-    
-    gap: 60px;
+  
 
+    flex-wrap: wrap-reverse;
+    gap: 30px;
+   
+ 
     h1{
         padding-bottom: 5vh;
         font-size: 2.3rem;
@@ -25,7 +27,7 @@ export const Div = styled.div`
         display: flex;
         flex-direction: column;
         width: 100%;
-        gap: 20px;
+        gap: 10px;
     }
     .formulario form div{
         display: flex;
@@ -45,13 +47,7 @@ export const Div = styled.div`
         font-size: 1.2rem;
     }
 
-    .formulario form .divCoordenada{
-        gap: 10px;
-       
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
+   
     .formulario form button{
         cursor: pointer;
         background-color: #9230f4;
@@ -70,18 +66,23 @@ export const Div = styled.div`
     }
 
     .divImg{
-        overflow: hidden;
-        width: 90%;
-        max-width: 500px;
+       max-width: 90vw;
+     
+     
+       
     }
-    .divImg .img{
-        width: 400px;
+    .divImg iframe{
+       position: relative;
+       
     }
 
 
     
    
-   
+   @media screen and (max-width:380px){
+        height: 120vh;
+        padding-bottom: 30px;
+   }
     
 
     
