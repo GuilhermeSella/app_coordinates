@@ -7,7 +7,7 @@ import {Link, Navigate} from 'react-router-dom'
 const NavMobile = styled.div`
     
     position: absolute;
-    display: ${(prop)=>prop.hamburguer === "disable" ? 'none' : 'block'};
+    display: ${(prop)=>prop.hamburguer === "enable" ? 'block' : 'none'};
     z-index: 1000;
     height: 100%;
     width: 100vw;
@@ -51,7 +51,7 @@ function Navbar() {
     return (
        <NavMobile hamburguer={hamburguer}>
             <ul>
-                <li>
+                <li  onClick={toggleHamburguer}>
                    
                  <span class="material-symbols-outlined">
                          home
@@ -60,23 +60,23 @@ function Navbar() {
                     
                 </li>
                
-                <li >
+                <li onClick={toggleHamburguer}>
                    
                 <span class="material-symbols-outlined">
                          person
                     </span>
-                    <Link to="/home/account" >Profile</Link>
+                    <Link to="/home/account"  >Profile</Link>
                 </li>
 
                 
-                <li>
+                <li  onClick={toggleHamburguer}>
                 <span class="material-symbols-outlined">
                          bookmark
                     </span>
                     <Link to="/home/saved" >Saved</Link>
                 </li>
 
-                <li>
+                <li  onClick={toggleHamburguer}>
                 <span class="material-symbols-outlined">
                     logout
                 </span>  

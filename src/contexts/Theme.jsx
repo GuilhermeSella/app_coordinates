@@ -13,7 +13,7 @@ const DarkModeProvider = ({children})=>{
 
     function toggleHamburguer(){
         setHamburguer(hamburguer === "disable" ? "enable" : "disable")
-        console.log(hamburguer)
+        
     }
 
     return(

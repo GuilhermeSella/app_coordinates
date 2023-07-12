@@ -35,7 +35,7 @@ const MenuHamburguer = styled.div`
     .input-menu-hamburguer{
         display: none;
     }
-    .input-menu-hamburguer:checked ~ label .hamburguer{
+    /* .input-menu-hamburguer:checked ~ label .hamburguer{
         transform: rotate(45deg);
     }
 
@@ -47,7 +47,7 @@ const MenuHamburguer = styled.div`
     .input-menu-hamburguer:checked ~ label .hamburguer:after{
         transform: rotate(90deg);
         bottom: 0;
-    }
+    } */
     
 
 
