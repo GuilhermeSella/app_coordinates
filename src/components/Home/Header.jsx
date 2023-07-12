@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = styled.header`
     
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0a0a0af7'};
    
     gap: 13%;
@@ -22,6 +22,10 @@ const Navbar = styled.header`
         display: flex;
         align-items: center;
         gap: 80px;
+    }
+
+    div a{
+        font-size: 1.9rem;
     }
 
  

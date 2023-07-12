@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { ThemeContext } from '../../contexts/Theme';
 
 const MenuHamburguer = styled.div`
     padding-bottom: 10px;
-    
+
     .hamburguer{
     position: relative;
     top: 6px;
@@ -55,9 +56,12 @@ const MenuHamburguer = styled.div`
 `
 
 function Hambuguer(props) {
+
+    const {toggleHamburguer} = useContext(ThemeContext)
+
     return (
         <MenuHamburguer class="menu-hamburguer">
-        <input type="checkbox" id="menu-hamburguer" class="input-menu-hamburguer"/>
+        <input onChange={toggleHamburguer} type="checkbox" id="menu-hamburguer" class="input-menu-hamburguer"/>
 
         <label htmlFor="menu-hamburguer">
             <div class="menu">
