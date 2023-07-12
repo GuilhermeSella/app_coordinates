@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import {ThemeContext} from '../../contexts/Theme'
 import { Div } from '../../components/Coordinates/Coordinates.style';
 import { useQuery } from "react-query";
+import { setDoc, doc } from 'firebase/firestore';
+import { db } from '../../services/Firebase-connection';
 import ImgLoading from './Loading.svg'
 import axios from 'axios'
 
@@ -9,6 +11,7 @@ export function Coordinates() {
 
     const {theme} = useContext(ThemeContext)
 
+ 
     const [adress, setAdress] = useState('');
     const [lat, setLat] = useState('');
     const [lng , setLng] = useState('');
@@ -46,15 +49,28 @@ export function Coordinates() {
 
     }
 
+    async function saveCoordinates(){
+        const obj = JSON.parse(localStorage.getItem("@userStorage"))
+        await setDoc(doc(db, "coordinates", obj.uid ), {
+            adress:adress,
+            lat:lat,
+            lng:lng,
+            srcMap: src,
+        })
+    }
+
 
     return (
-       <Div theme={theme}>
+       <Div theme={theme} >
             <div className='formulario'>
                 
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="">Digite um endereço:</label>
-                        <input type="text" name="" id="" onChange={(e)=>setAdress(e.target.value)}  />
+                        <input type="text" name="" id="" onChange={(e)=>{
+                            setAdress(e.target.value)
+                            setSrc('')
+                            }} />
                     </div>
                 
 
@@ -81,6 +97,12 @@ export function Coordinates() {
                 frameBorder="0">
                 </iframe>
              
+                {src === '' ? (
+                    <h2>Aguardando...</h2>
+                ) : (
+                    <button onClick={saveCoordinates}>Salvar</button>
+                )}
+
             </div>
        </Div>
     );

@@ -1,6 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
 
+
 export const Div = styled.div`
+
+
+
     background-color:${(prop)=>prop.theme === 'light' ? 'white' : "#0a0a0af7"} ;
     color: ${(prop)=>prop.theme === 'light' ? 'black' : "white"};
     width: 100%;
@@ -67,9 +72,22 @@ export const Div = styled.div`
 
     .divImg{
        max-width: 90vw;
-     
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
      
        
+    }
+    .divImg button{
+        cursor: pointer;
+        background-color: #9230f4;
+        color: white;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 0  ;
+        width: 150px;
+        margin: auto;
     }
     .divImg iframe{
        position: relative;
@@ -77,11 +95,11 @@ export const Div = styled.div`
     }
 
 
-    
    
    @media screen and (max-width:380px){
         height: 120vh;
         padding-bottom: 30px;
+        
    }
     
 
