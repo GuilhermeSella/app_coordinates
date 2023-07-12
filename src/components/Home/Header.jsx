@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Hamburguer from './Hambuguer.style';
 import {Link} from 'react-router-dom'
 import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/Theme';
@@ -55,11 +56,17 @@ const Navbar = styled.header`
         color: #9E30F4;
         font-size: 2rem;
     }
+    .menuH{
+        display: none;
+    }
 
     @media screen and (max-width:860px) {
         .button, .list{
             display: none;
         }
+        .menuH{
+        display: block;
+    }
     }
 
 `
@@ -99,6 +106,10 @@ function Header() {
                     logout
                     </span>
                 </Link>
+
+               <div className='menuH'>
+                 <Hamburguer />
+               </div>
            </nav>
             
 
