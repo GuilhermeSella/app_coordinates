@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import {ThemeContext} from '../../contexts/Theme'
 import { Div } from '../../components/Coordinates/Coordinates.style';
 import { useQuery } from "react-query";
-import { setDoc, doc } from 'firebase/firestore';
+import { setDoc, doc, addDoc, collection } from 'firebase/firestore';
 import { db } from '../../services/Firebase-connection';
 import ImgLoading from './Loading.svg'
 import axios from 'axios'
@@ -51,11 +51,18 @@ export function Coordinates() {
 
     async function saveCoordinates(){
         const obj = JSON.parse(localStorage.getItem("@userStorage"))
-        await setDoc(doc(db, "coordinates", obj.uid ), {
+        await addDoc(collection(db, "coordinates"), {
             adress:adress,
             lat:lat,
             lng:lng,
-            srcMap: src,
+            srcMap:src,
+            userId:obj.uid,
+        })
+        .then(()=>{
+            setAdress('')
+            setSrc('')
+            setLat('')
+            setLng('')
         })
     }
 
@@ -67,7 +74,7 @@ export function Coordinates() {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="">Digite um endereço:</label>
-                        <input type="text" name="" id="" onChange={(e)=>{
+                        <input type="text" name="" id="" value={adress} onChange={(e)=>{
                             setAdress(e.target.value)
                             setSrc('')
                             }} />
