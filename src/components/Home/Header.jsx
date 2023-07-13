@@ -92,13 +92,13 @@ function Header() {
            <nav className='navIcons'>
 
                 <Link className='button' to="/home/account">
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     person
                 </span>
                 </Link>
 
                 <Link className='button' to="/home/saved">
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                     bookmark
                     </span>
                 </Link>
@@ -106,7 +106,7 @@ function Header() {
                 <Link className='button' onClick={()=> {
                 navigate("/")
                 LogOut()}}>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                     logout
                     </span>
                 </Link>

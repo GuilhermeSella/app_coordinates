@@ -53,7 +53,7 @@ function Navbar() {
             <ul>
                 <li  onClick={toggleHamburguer}>
                    
-                 <span class="material-symbols-outlined">
+                 <span className="material-symbols-outlined">
                          home
                     </span>
                     <Link to="/home">Home</Link>
@@ -62,7 +62,7 @@ function Navbar() {
                
                 <li onClick={toggleHamburguer}>
                    
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                          person
                     </span>
                     <Link to="/home/account"  >Profile</Link>
@@ -70,14 +70,14 @@ function Navbar() {
 
                 
                 <li  onClick={toggleHamburguer}>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                          bookmark
                     </span>
                     <Link to="/home/saved" >Saved</Link>
                 </li>
 
                 <li  onClick={toggleHamburguer}>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     logout
                 </span>  
                     <Link onClick={()=> {

@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Div } from '../../components/Saved/Saved.style';
-import { doc, onSnapshot, collection, query, where } from 'firebase/firestore';
+import { doc, onSnapshot, collection, query, where, limit } from 'firebase/firestore';
 import { db } from '../../services/Firebase-connection';
 
 
 function Saved(props) {
+
+    const [limit, setLimit] = useState(5)
+    const [listCoordinates, setListCordinates] = useState([])
     
     useEffect(()=>{
         async function LoadCoordinates(){
@@ -22,7 +25,8 @@ function Saved(props) {
                         srcMap:item.data().srcMap
                     })
                 })
-                console.log(list)
+                setListCordinates(list)
+                
             })
         }
 
@@ -33,7 +37,15 @@ function Saved(props) {
 
     return (
         <Div>
-            <h1>Página Saved</h1>
+            <h1>Página Save</h1>
+            {listCoordinates.map((item)=>(
+                <div key={item.id}>
+                    <h2>{item.adress}</h2>
+                    <p>Latitude: {item.lat}</p>
+                    <p>Longitude: {item.lng}</p>
+                     <br />
+                </div>
+            ))}
         </Div>
     );
 }

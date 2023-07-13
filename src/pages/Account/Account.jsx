@@ -55,7 +55,7 @@ function Account(props) {
         <Main theme={theme}>
             <Profilepic>
            <label >
-           <span class="material-symbols-outlined">
+           <span className="material-symbols-outlined">
                 upload
                 </span>
 

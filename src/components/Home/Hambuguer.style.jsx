@@ -60,12 +60,12 @@ function Hambuguer(props) {
     const {toggleHamburguer} = useContext(ThemeContext)
 
     return (
-        <MenuHamburguer class="menu-hamburguer">
-        <input onChange={toggleHamburguer} type="checkbox" id="menu-hamburguer" class="input-menu-hamburguer"/>
+        <MenuHamburguer className="menu-hamburguer">
+        <input onChange={toggleHamburguer} type="checkbox" id="menu-hamburguer" className="input-menu-hamburguer"/>
 
         <label htmlFor="menu-hamburguer">
-            <div class="menu">
-                <span class="hamburguer"></span>
+            <div className="menu">
+                <span className="hamburguer"></span>
             </div>
         </label>
         </MenuHamburguer>
