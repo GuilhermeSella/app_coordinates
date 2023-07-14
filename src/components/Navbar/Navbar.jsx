@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../../contexts/Theme';
 import {Link, Navigate} from 'react-router-dom'
-
+import { AuthContext} from '../../contexts/Auth'
+import { useNavigate } from 'react-router-dom';
 
 const NavMobile = styled.div`
     
@@ -45,7 +46,8 @@ const NavMobile = styled.div`
 function Navbar() {
 
     const {theme ,hamburguer, toggleHamburguer} = useContext(ThemeContext)
-
+    const {LogOut} = useContext(AuthContext)
+    const navigate = useNavigate();
 
 
     return (
