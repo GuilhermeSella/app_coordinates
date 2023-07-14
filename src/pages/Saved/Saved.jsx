@@ -7,6 +7,7 @@ import { db } from '../../services/Firebase-connection';
 function Saved(props) {
 
     const [limit, setLimit] = useState(5)
+    const [loading, setLoading] = useState(true)
     const [listCoordinates, setListCordinates] = useState([])
     
     useEffect(()=>{
@@ -26,7 +27,7 @@ function Saved(props) {
                     })
                 })
                 setListCordinates(list)
-                
+                setLoading(false)
             })
         }
 
@@ -38,7 +39,9 @@ function Saved(props) {
     return (
         <Div>
             <h1>Página Save</h1>
-            {listCoordinates.map((item)=>(
+            {loading === true ? (
+                <h2>Buscando Dados...</h2>
+            ) : listCoordinates.map((item)=>(
                 <div key={item.id}>
                     <h2>{item.adress}</h2>
                     <p>Latitude: {item.lat}</p>

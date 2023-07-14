@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 
 const Div = styled.footer`
-  
+    
+    
     background-color: #101010f7;
     width: 100%;
     padding: 12px 0px;

@@ -11,7 +11,7 @@ const NavMobile = styled.div`
     z-index: 1000;
     height: 100%;
     width: 100vw;
-    background-color: white;
+    background-color: ${(prop)=>prop.theme === "light" ? "white" : "#0a0a0aea" };
    
     ul{
         height: 100%;
@@ -29,7 +29,7 @@ const NavMobile = styled.div`
         display: flex;
         align-items: center;
         gap: 5px;
-        border-bottom: 0.5px solid #000000c3;
+        border-bottom: 0.5px solid white;
         padding-bottom: 10px;
     }
 
@@ -44,12 +44,12 @@ const NavMobile = styled.div`
 
 function Navbar() {
 
-    const {hamburguer, toggleHamburguer} = useContext(ThemeContext)
+    const {theme ,hamburguer, toggleHamburguer} = useContext(ThemeContext)
 
 
 
     return (
-       <NavMobile hamburguer={hamburguer}>
+       <NavMobile hamburguer={hamburguer} theme={theme}>
             <ul>
                 <li  onClick={toggleHamburguer}>
                    

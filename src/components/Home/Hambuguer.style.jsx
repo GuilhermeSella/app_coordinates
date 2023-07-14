@@ -9,14 +9,14 @@ const MenuHamburguer = styled.div`
     position: relative;
     top: 6px;
     display: block;
-    background-color: black;
+    background-color: ${(prop)=> prop.theme === "light" ? "black" : "white"};
     width: 40px;
     height: 3.2px;
     transition: .5s ease-in-out;
     }
     .hamburguer:before,
     .hamburguer:after{
-        background-color: black;
+        background-color: ${(prop)=> prop.theme === "light" ? "black" : "white"};
         content: '';
         display: block;
         width: 100%;
@@ -57,10 +57,10 @@ const MenuHamburguer = styled.div`
 
 function Hambuguer(props) {
 
-    const {toggleHamburguer} = useContext(ThemeContext)
+    const {toggleHamburguer, theme} = useContext(ThemeContext)
 
     return (
-        <MenuHamburguer className="menu-hamburguer">
+        <MenuHamburguer className="menu-hamburguer" theme={theme}>
         <input onChange={toggleHamburguer} type="checkbox" id="menu-hamburguer" className="input-menu-hamburguer"/>
 
         <label htmlFor="menu-hamburguer">

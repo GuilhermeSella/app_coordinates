@@ -4,7 +4,7 @@ import { ThemeContext } from '../../contexts/Theme';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 const Text = styled.div`
-      background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0a0a0af7'};
+      background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0a0a0aea'};
       color: ${(prop)=> prop.theme === 'light'? 'black':"white"};
     width: 100%;
     height: 92vh;

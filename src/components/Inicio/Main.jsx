@@ -12,7 +12,7 @@ import { ThemeContext } from '../../contexts/Theme';
 const Div = styled.main`
     width: 100vw;
     height: 100vh;
-    background-color: ${(theme) => theme.theme === "light" ? 'white' : '#0a0a0af7'};
+    background-color: ${(theme) => theme.theme === "light" ? 'white' : '#0a0a0aea'};
     color: ${(prop)=> prop.theme === 'light'? 'black':"white"};
     display: flex;
     justify-content: center;

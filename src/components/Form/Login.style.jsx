@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FormStyle = styled.div`
     width: 100vw;
-    background-color: ${(prop)=> prop.theme === "light" ? 'white' : '#0a0a0af7' };
+    background-color: ${(prop)=> prop.theme === "light" ? 'white' : '#0a0a0aea' };
     color: ${(prop)=> prop.theme === "light" ? 'black' : 'white'};
     height: 100vh;
     display: flex;

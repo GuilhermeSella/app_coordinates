@@ -8,7 +8,7 @@ import { ThemeContext } from './contexts/Theme'
 
 function App() {
   
-  const {hamburguer} = useContext(ThemeContext)
+  const {hamburguer, theme} = useContext(ThemeContext)
 
 
   return (
@@ -16,13 +16,19 @@ function App() {
    
     <Header/>
       {hamburguer === "disable" ? (
-        <Outlet />
+        <>
+          <Outlet />
+         <Footer/>
+        </>
       ) : (
-        <Navbar />
+        
+          <Navbar />
+         
+       
       )}
         
       
-    <Footer/>
+   
     
     </>
   )

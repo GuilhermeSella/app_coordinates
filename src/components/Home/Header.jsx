@@ -11,7 +11,7 @@ const Navbar = styled.header`
     
     width: 100%;
     padding: 20px;
-    background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0a0a0af7'};
+    background-color: ${(prop)=> prop.theme === 'light' ? 'white' : '#0a0a0aea'};
    
     gap: 13%;
     display: flex;

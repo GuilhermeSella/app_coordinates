@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Main = styled.main`
-  background-color: ${(prop) => prop.theme === "light" ? "white" : "#0a0a0af7"};
+  background-color: ${(prop) => prop.theme === "light" ? "white" : "#0a0a0aea"};
   width: 100%;
   display: flex;
   flex-direction: column;
