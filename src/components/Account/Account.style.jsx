@@ -23,8 +23,9 @@ export const Profilepic = styled.div`
         width: 250px;
         height: 230px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: column-reverse;
+        
+        justify-content: space-between;
         cursor: pointer;
         align-items: center;
     }
@@ -40,11 +41,15 @@ export const Profilepic = styled.div`
        
      }
      span{
-        position: absolute;
+        color: #9E30F4;
+        font-weight: bold;
+        text-decoration: underline;
+        top: 20px;
+        position: relative;
         transition: 0.9s;
      }
      label:hover span{
-        transform: scale(1.6);
+        transform: scale(1.1);
      }
 `
 export const FormProfile = styled.div`
@@ -66,35 +71,48 @@ export const FormProfile = styled.div`
         max-width: 500px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
     }
     div label{
         color: #9E30F4;
         font-weight: bold;
         font-size: 18px;
-    }
-    div input{
-        padding: 10px;
-        background-color: white;
-        font-size: 1.1rem;
-        outline: none;
-        border: 3px solid #9E30F4;
-        border-radius: 7px;
+        pointer-events: none;
     }
 
+
+    div input{
+        padding: 10px;
+        background-color: transparent;
+        color:  ${(prop)=>prop.theme === "dark" ? "white" : "black"} ;
+        font-size: 1.1rem;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #9E30F4;
+      
+    }
+
+   
+
     .divToggleTheme{
-        padding: 20px 0 ;
+        padding: 20px 0 70px 0  ;
         display: flex;
         flex-direction: row;
         align-items: center;
-       justify-content: space-evenly;
+        justify-content: space-between;
        
     }
     .toggleTheme{
-        
+        cursor: pointer;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        border: none;
+        background-color: ${(prop)=>prop.theme === "light" ? "#0a0a0aea" : "rgba(195, 171, 255, 0.919)"};
+        color:  white ;
     }
 
-    button{
+    .saveButton{
         cursor: pointer;
         padding: 15px 50px;
         border-radius: 10px;

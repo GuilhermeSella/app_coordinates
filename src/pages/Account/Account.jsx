@@ -32,6 +32,7 @@ function Account(props) {
                 uid:obj.uid,
               }
               UserStorage(data)
+
         })
     }
 
@@ -55,8 +56,8 @@ function Account(props) {
         <Main theme={theme}>
             <Profilepic>
            <label >
-           <span className="material-symbols-outlined">
-                upload
+           <span >
+                Alterar avatar
                 </span>
 
                 <input type="file" accept='image/*' onChange={handleFile}  />
@@ -69,7 +70,7 @@ function Account(props) {
 
            </label>
             </Profilepic>
-            <FormProfile>
+            <FormProfile theme={theme}>
                 <h1>Informações pessoais</h1>
                 <div>
                     <label htmlFor="">Nome:</label>
@@ -79,13 +80,13 @@ function Account(props) {
                     <label htmlFor="">Email:</label>
                     <input type="email" defaultValue={email} onChange={(e)=> setEmail(e.target.value)} id="" />
                 </div>
-                <h1>Preferências</h1>
+               
                 <div className='divToggleTheme'>
-                    <label htmlFor="">Tema:</label>
-                    <button className='toggleTheme' onClick={toggleTheme}>{theme === "light" ? "dark" : "light"}</button>
+                <h1>Preferências</h1>
+                    <button className='toggleTheme' onClick={toggleTheme}>{theme === "light" ? "Dark" : "Light"}</button>
                 </div>
 
-                <button onClick={saveDoc} >Salvar</button>
+                <button className='saveButton' onClick={saveDoc} >Salvar</button>
                 <a href="" className='delete'>Excluir conta</a>
             </FormProfile>
         </Main>

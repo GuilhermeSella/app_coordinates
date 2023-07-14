@@ -50,6 +50,7 @@ function AuthProvider({children}){
             await setDoc(doc(db, "users", uid),{
                 nome:name,
                 imgUrl:null,
+                theme:"light",
             })
             .then((res)=>{
             
@@ -58,6 +59,7 @@ function AuthProvider({children}){
                 email:value.user.email,
                 imgUrl: null,
                 logado: true,
+                
               }
               setUser(data)
               UserStorage(data)
