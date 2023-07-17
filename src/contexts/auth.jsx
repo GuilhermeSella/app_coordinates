@@ -59,7 +59,7 @@ function AuthProvider({children}){
                 email:value.user.email,
                 imgUrl: null,
                 logado: true,
-                
+                uid: uid
               }
               setUser(data)
               UserStorage(data)

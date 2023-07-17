@@ -77,6 +77,8 @@ export function Coordinates() {
                         <input type="text" name="" id="" value={adress} onChange={(e)=>{
                             setAdress(e.target.value)
                             setSrc('')
+                            setLat('')
+                            setLng('')
                             }} />
                     </div>
                 
