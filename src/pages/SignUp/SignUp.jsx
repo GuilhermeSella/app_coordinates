@@ -27,10 +27,9 @@ function SignUp() {
         }
     }
 
-    const {theme} = useContext(ThemeContext)
 
     return (
-    <FormStyle theme={theme}>
+    <FormStyle >
          <div className='Divform'>
                 <form onSubmit={handleSubmit}>
                     <h1>Sign Up</h1>

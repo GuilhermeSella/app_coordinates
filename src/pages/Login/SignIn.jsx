@@ -3,7 +3,7 @@ import { FormStyle } from '../../components/Form/Login.style';
 import { Link } from 'react-router-dom';
 import Login from './login.svg'
 import {AuthContext } from '../../contexts/Auth'
-import {ThemeContext } from '../../contexts/Theme'
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -30,10 +30,10 @@ function SignIn(props) {
 
     }
 
-    const {theme} = useContext(ThemeContext);
+
 
     return (
-        <FormStyle theme={theme}>
+        <FormStyle >
            
             <div className='Divform'>
                 <form onSubmit={handleSignIn} >

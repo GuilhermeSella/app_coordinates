@@ -12,8 +12,8 @@ import { ThemeContext } from '../../contexts/Theme';
 const Div = styled.main`
     width: 100vw;
     height: 100vh;
-    background-color: ${(theme) => theme.theme === "light" ? 'white' : '#0a0a0aea'};
-    color: ${(prop)=> prop.theme === 'light'? 'black':"white"};
+    background-color: white;
+    color:black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,7 +91,7 @@ const Div = styled.main`
 
 function Main(props) {
 
-    const {theme, toggleTheme} = useContext(ThemeContext)
+    const { toggleTheme} = useContext(ThemeContext)
 
 
     const logado = localStorage.getItem("@userStorage","logado")
@@ -104,7 +104,7 @@ function Main(props) {
 
 
     return (
-        <Div theme = {theme}>
+        <Div >
             <div className='text'>
               
                <h1>Descubra coordenadas exatas e veja quando quiser</h1>

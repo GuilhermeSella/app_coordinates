@@ -1,13 +1,16 @@
-import {useState, createContext, useEffect} from 'react'
+import {useState, createContext, useEffect, useContext} from 'react'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {auth, db} from '../services/Firebase-connection'
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { Navigate } from 'react-router-dom';
+import { ThemeContext } from './Theme';
 
 export const AuthContext = createContext({});
 
 
 function AuthProvider({children}){
+
+    const {theme} = useContext(ThemeContext)
 
     const [user, setUser] = useState(null)
     const [logado, setLogado] = useState(false)
@@ -32,6 +35,7 @@ function AuthProvider({children}){
                 nome: docSnap.data().nome,
                 email: value.user.email,
                 imgUrl: docSnap.data().imgUrl,
+                theme:theme,
                 logado: true,
             }
 
@@ -50,7 +54,7 @@ function AuthProvider({children}){
             await setDoc(doc(db, "users", uid),{
                 nome:name,
                 imgUrl:null,
-                theme:"light",
+               
             })
             .then((res)=>{
             
@@ -59,7 +63,8 @@ function AuthProvider({children}){
                 email:value.user.email,
                 imgUrl: null,
                 logado: true,
-                uid: uid
+                uid: uid,
+                theme:"light",
               }
               setUser(data)
               UserStorage(data)

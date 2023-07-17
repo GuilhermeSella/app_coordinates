@@ -59,6 +59,7 @@ function Account(props) {
                 imgUrl: urlAvatar,
                 logado: true,
                 uid:obj.uid,
+                theme:theme,
               }
               UserStorage(data)
               
