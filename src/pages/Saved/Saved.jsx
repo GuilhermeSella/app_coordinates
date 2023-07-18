@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Div } from '../../components/Saved/Saved.style';
 import { doc, onSnapshot, collection, query, where, limit } from 'firebase/firestore';
 import { db } from '../../services/Firebase-connection';
-
+import { useContext } from 'react';
+import {ThemeContext} from '../../contexts/Theme'
 
 function Saved(props) {
 
+    const {theme} = useContext(ThemeContext)
     const [limit, setLimit] = useState(5)
     const [loading, setLoading] = useState(true)
     const [listCoordinates, setListCordinates] = useState([])
@@ -39,7 +41,7 @@ function Saved(props) {
     return (
         <>
       
-            <Div loading = {loading}>
+            <Div loading = {loading} theme={theme}>
             <h1>Página Salvos</h1>
            {loading === true ? (
                <h2>Buscando Dados...</h2>

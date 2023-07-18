@@ -3,13 +3,17 @@ import styled from "styled-components";
 export const Div = styled.main`
     height: ${(prop)=> prop.loading === true ? "100vh" : "none" };
     width: 100%;
+    background-color: ${(prop)=>prop.theme === "light" ? "white" : "#0a0a0aea"};
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     padding-bottom: 10vh;
+    color: ${(prop)=>prop.theme === "light" ? "black" : "white"};
+
     h1{
         padding-bottom: 4vh;
+       
     }
 
     .container{
@@ -20,17 +24,18 @@ export const Div = styled.main`
         display: flex;
         gap: 10px;
         flex-direction: column;
-        border: 2px solid black;
+        border: 2px solid  ${(prop)=>prop.theme === "light" ? "black" : "white"};;
+       
     }
 
     .container h2, p{
         color: #9E30F4;
     }
     .container h2 b{
-        color: black;
+        color: ${(prop)=>prop.theme === "light" ? "black" : "white"};
     }
     .container p b{
-        color: black;
+        color: ${(prop)=>prop.theme === "light" ? "black" : "white"};
     }
 
     .container .options{
@@ -47,9 +52,9 @@ export const Div = styled.main`
         border: none;
         border-radius: 7px;
         font-size: 1rem;
+        text-decoration: underline;
     }
     .container .options a{
-        text-decoration: none;
         color: #9E30F4;
         font-weight: bold;
     }

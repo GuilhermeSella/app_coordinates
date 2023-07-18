@@ -6,7 +6,7 @@ export const Div = styled.div`
 
 
 
-    background-color:${(prop)=>prop.theme === 'light' ? 'white' : "#0a0a0af7"} ;
+    background-color:${(prop)=>prop.theme === 'light' ? 'white' : "#0a0a0aea"} ;
     color: ${(prop)=>prop.theme === 'light' ? 'black' : "white"};
     width: 100%;
    height: 100vh;
