@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Div, DivnotFound } from '../../components/Saved/Saved.style';
-import { doc, onSnapshot, collection, query, where, limit } from 'firebase/firestore';
+import {Link } from 'react-router-dom'
+import { doc, onSnapshot, collection, query, where, limit, deleteDoc } from 'firebase/firestore';
 import { db } from '../../services/Firebase-connection';
 import { useContext } from 'react';
 import {ThemeContext} from '../../contexts/Theme'
@@ -16,7 +17,11 @@ function Saved(props) {
     
 
     async function deleteCoordinates(Id){
-        
+        const docRef = doc(db, "coordinates", Id)
+        await deleteDoc(docRef)
+        .then(()=>{
+            alert("oK")
+        })
     }
 
     useEffect(()=>{
@@ -62,9 +67,9 @@ function Saved(props) {
                <h2>Buscando Dados...</h2>
            ) : notFound === true ? (
                 <DivnotFound >
-                    <h1 >Nenhum registro encontrado!</h1>
+                    <h1 >Você não possui nenhum registro!</h1>
                     
-                    <a href="/coordinates">Começar</a>
+                 <Link to="/home/coordinates">Começar</Link>
                     
                 </DivnotFound>
            ) : listCoordinates.map((item)=>(
@@ -73,7 +78,7 @@ function Saved(props) {
                 <p>Latitude: <b>{item.lat}</b></p>
                 <p>Longitude: <b>{item.lng}</b></p>
                 <div className='options'>
-                    <button onClick={deleteCoordinates(item.id)}>Excluir</button>
+                    <button onClick={()=> deleteCoordinates(item.id)}>Excluir</button>
                      <a target='_blank' href={`https://www.google.com/maps/search/?api=1&query=${item.lat}%2C${item.lng}`}>Maps</a>
                 </div>
             </div>
