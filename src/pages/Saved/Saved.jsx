@@ -5,7 +5,7 @@ import { doc, onSnapshot, collection, query, where, limit, deleteDoc } from 'fir
 import { db } from '../../services/Firebase-connection';
 import { useContext } from 'react';
 import {ThemeContext} from '../../contexts/Theme'
-import imgnotfound from './imgnotfound.png'
+
 
 function Saved(props) {
 
@@ -67,10 +67,8 @@ function Saved(props) {
                <h2>Buscando Dados...</h2>
            ) : notFound === true ? (
                 <DivnotFound >
-                    <h1 >Você não possui nenhum registro!</h1>
-                    
-                 <Link to="/home/coordinates">Começar</Link>
-                    
+                    <h1 >Você não possui nenhum registro!</h1>    
+                    <Link to="/home/coordinates">Começar</Link>
                 </DivnotFound>
            ) : listCoordinates.map((item)=>(
             <div className='container' key={item.id}>

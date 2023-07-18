@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Div = styled.main`
-    height: ${(prop)=> prop.loading === true ? "100vh" : "1" };
+    height: ${(prop)=> prop.loading === true ? "100vh" : "none" };
     width: 100%;
     background-color: ${(prop)=>prop.theme === "light" ? "white" : "#0a0a0aea"};
     display: flex;
@@ -65,10 +65,12 @@ export const Div = styled.main`
 `
 
 export const DivnotFound = styled.div`
+    position: relative;
+    top: 12vh;
     display:flex ;
     flex-direction: column;
     align-items: center;
-    padding: 20vh 0;
+    padding: 7vh 0;
     text-align: center;
     img{
         width: 90vw;
