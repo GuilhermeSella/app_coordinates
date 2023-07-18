@@ -37,19 +37,26 @@ function Saved(props) {
 
 
     return (
-        <Div>
-            <h1>Página Save</h1>
-            {loading === true ? (
-                <h2>Buscando Dados...</h2>
-            ) : listCoordinates.map((item)=>(
-                <div key={item.id}>
-                    <h2>{item.adress}</h2>
-                    <p>Latitude: {item.lat}</p>
-                    <p>Longitude: {item.lng}</p>
-                     <br />
-                </div>
-            ))}
-        </Div>
+        <>
+      
+            <Div loading = {loading}>
+            <h1>Página Salvos</h1>
+           {loading === true ? (
+               <h2>Buscando Dados...</h2>
+           ) : listCoordinates.map((item)=>(
+               <div className='container' key={item.id}>
+                   <h2>Adress: <b>{item.adress}</b></h2>
+                   <p>Latitude: <b>{item.lat}</b></p>
+                   <p>Longitude: <b>{item.lng}</b></p>
+                   <div className='options'>
+                       <button>Excluir</button>
+                        <a href="">Mapa</a>
+                   </div>
+               </div>
+
+           ))}
+       </Div>
+        </>
     );
 }
 
