@@ -6,6 +6,8 @@ import { setDoc, doc, addDoc, collection } from 'firebase/firestore';
 import { db } from '../../services/Firebase-connection';
 import ImgLoading from './Loading.svg'
 import axios from 'axios'
+import {toast, ToastContainer} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 export function Coordinates() {
 
@@ -59,10 +61,14 @@ export function Coordinates() {
             userId:obj.uid,
         })
         .then(()=>{
+            toast.success("Salvo com sucesso!")
             setAdress('')
             setSrc('')
             setLat('')
             setLng('')
+        })
+        .catch(()=>{
+            toast.error("Ops, algo deu errado!")
         })
     }
 

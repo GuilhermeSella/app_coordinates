@@ -4,7 +4,7 @@ import {auth, db} from '../services/Firebase-connection'
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { Navigate } from 'react-router-dom';
 import { ThemeContext } from './Theme';
-
+import { ToastContainer, toast } from 'react-toastify';
 export const AuthContext = createContext({});
 
 
@@ -43,6 +43,7 @@ function AuthProvider({children}){
             UserStorage(data);
             setLoadingAuth(false);
        })
+       
     }
 
     async function signUp(name, email,password){
@@ -70,26 +71,24 @@ function AuthProvider({children}){
               UserStorage(data)
               setLoadingAuth(false);
               
-
+              
 
             })
             .catch((error)=>{
                 console.log(error)
             })
         })
-        .catch((error)=>{
-            console.log(error)
-        })
     }
 
     function LogOut(){
+        toast.error("Saiu!")
+            let data = {
+                logado: false,
+              }
+            setUser(data)
+            localStorage.clear("@userStorage")
+            
         
-        let data = {
-            logado: false,
-          }
-        setUser(data)
-        localStorage.clear("@userStorage")
-        alert("saindo")
     }
 
     function UserStorage(data){
@@ -106,10 +105,13 @@ function AuthProvider({children}){
                 signIn,
                 signUp,
                 loadingAuth,
+                setLoadingAuth,
                 LogOut,
                 UserStorage
             }}
         >
+        <ToastContainer />
+
             {children}
         </AuthContext.Provider>
     )

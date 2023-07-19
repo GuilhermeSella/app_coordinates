@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Div = styled.main`
-    height: ${(prop)=> prop.loading === true ? "100vh" : "none" };
+    height: ${(prop)=> prop.load === true ? "100vh" : "none" };
     width: 100%;
     background-color: ${(prop)=>prop.theme === "light" ? "white" : "#0a0a0aea"};
     display: flex;

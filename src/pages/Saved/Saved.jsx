@@ -5,7 +5,8 @@ import { doc, onSnapshot, collection, query, where, limit, deleteDoc } from 'fir
 import { db } from '../../services/Firebase-connection';
 import { useContext } from 'react';
 import {ThemeContext} from '../../contexts/Theme'
-
+import {toast, ToastContainer} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 function Saved(props) {
 
@@ -20,7 +21,7 @@ function Saved(props) {
         const docRef = doc(db, "coordinates", Id)
         await deleteDoc(docRef)
         .then(()=>{
-            alert("oK")
+            toast.success("Registro deletado!")
         })
     }
 
@@ -61,7 +62,7 @@ function Saved(props) {
     return (
         <>
       
-            <Div loading = {loading} theme={theme}>
+        <Div load={loading} theme={theme}>
             <h1>Página <b>Salvos</b></h1>
            {loading === true ? (
                <h2>Buscando Dados...</h2>

@@ -3,9 +3,9 @@ import { FormStyle } from '../../components/Form/Login.style';
 import { Link } from 'react-router-dom';
 import Login from './login.svg'
 import {AuthContext } from '../../contexts/Auth'
-
 import { useNavigate } from 'react-router-dom';
-
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 
 function SignIn(props) {
@@ -13,7 +13,7 @@ function SignIn(props) {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const {signIn, loadingAuth} =  useContext(AuthContext)
+    const {signIn, loadingAuth, setLoadingAuth} =  useContext(AuthContext)
 
     const navigate = useNavigate();
 
@@ -24,6 +24,11 @@ function SignIn(props) {
           await signIn(email,password)
            .then((res)=>{
              navigate("/home");
+             toast.success("Bem vindo de volta!")
+           })
+           .catch((error)=>{
+            toast.error("Email ou senha inválidos!")
+            setLoadingAuth(false)
            })
         }
         
@@ -34,7 +39,7 @@ function SignIn(props) {
 
     return (
         <FormStyle >
-           
+           <ToastContainer />
             <div className='Divform'>
                 <form onSubmit={handleSignIn} >
                     <h1>Sign in</h1>
