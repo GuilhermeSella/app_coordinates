@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import {ThemeContext} from '../../contexts/Theme'
 import { AuthContext } from '../../contexts/Auth';
@@ -12,59 +12,67 @@ function Account(props) {
 
 
     const {user, UserStorage} = useContext(AuthContext)
-
     const { theme, toggleTheme} = useContext(ThemeContext);
+
     const obj = JSON.parse(localStorage.getItem("@userStorage"))
     const [nome, setNome] = useState(obj.nome)
     const [email, setEmail] = useState(obj.email)
     const [imgUrl, setImgUrl] = useState(obj.imgUrl)
-    const [imgAvatar, setImgAvatar] = useState()
-    const [urlAvatar, setUrlAvatar] = useState(null)
-
+    const [imgAvatar, setImgAvatar] = useState(null)
+ 
 
     async function handleUpload(){
-        
-        if(imgAvatar === undefined){
-            saveDoc()
-        }
-        else{
-            const uid = obj.uid
-        const uploadRef = ref(storage, `images/${uid}/${imgAvatar.name}`)
+        const uid = obj.uid
+        const uploadRef = ref(storage, `images/${uid}/${imgAvatar}`)
         const uploudTask = uploadBytes(uploadRef, imgAvatar)
         .then((snapshot)=>{
-            getDownloadURL(snapshot.ref) .then(async (downloadUrl)=>{
-                let urlFoto = downloadUrl
-                
-                console.log(urlFoto)
-                setUrlAvatar(urlFoto)
-                console.log(imgUrl)
-                saveDoc()
+            getDownloadURL(snapshot.ref).then( async (downloadUrl)=>{
+                let urlfoto = downloadUrl;
+                const docRef = doc(db, "users", uid)
+                await updateDoc(docRef,{
+                    imgUrl: urlfoto,
+                    nome:nome
+                })
+                .then(()=>{
+                    let data = {
+                    nome: nome,
+                    email:email,
+                    imgUrl: imgUrl,
+                    logado: true,
+                    uid:obj.uid,
+                    theme:theme,
+                    }
+                    UserStorage(data)  
+                })
             })
             
         })
-        }
+        
     }
 
     async function saveDoc(){
+
+       if(imgAvatar === null && nome !== ""){
         await updateDoc(doc(db, "users", obj.uid),{
             nome:nome,
-            imgUrl:urlAvatar,
             theme: theme,
         })
         .then(()=>{
             
             let data = {
-                nome: nome,
-                email:email,
-                imgUrl: urlAvatar,
-                logado: true,
-                uid:obj.uid,
-                theme:theme,
-              }
-              UserStorage(data)
-              
-
+            nome: nome,
+            email:email,
+            imgUrl: imgUrl,
+            logado: true,
+            uid:obj.uid,
+            theme:theme,
+            }
+            UserStorage(data)  
         })
+    } else if( nome !== "" && imgAvatar !== null){
+        handleUpload()
+    }
+        
     }
 
     function handleFile(e){
@@ -74,8 +82,6 @@ function Account(props) {
             if(image.type === 'image/jpeg' || image.type === 'image/png'){
                 setImgAvatar(image)
                 setImgUrl(URL.createObjectURL(image))
-                
-             
             }
             else{
                 setImgUrl(null)
@@ -97,11 +103,14 @@ function Account(props) {
                 </span>
 
                 <input type="file" accept='image/*' onChange={handleFile}  />
-                {imgUrl === null ?(
+
+                {imgUrl === null ? (
                     <img src={defaultAvatar} alt="Foto de perfil" />
                 ) : (
                     <img src={imgUrl} alt="Foto de perfil" width={250} height={250} />
                 )}
+
+                
                 
 
            </label>
@@ -122,7 +131,7 @@ function Account(props) {
                     <button className='toggleTheme' onClick={toggleTheme}>{theme === "light" ? "Dark" : "Light"}</button>
                 </div>
 
-                <button className='saveButton' onClick={handleUpload} >Salvar</button>
+                <button className='saveButton' onClick={saveDoc} >Salvar</button>
                 <a href="" className='delete'>Excluir conta</a>
             </FormProfile>
         </Main>
