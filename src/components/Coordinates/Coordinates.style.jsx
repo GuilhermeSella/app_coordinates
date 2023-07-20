@@ -9,14 +9,14 @@ export const Div = styled.div`
     background-color:${(prop)=>prop.theme === 'light' ? 'white' : "#0a0a0aea"} ;
     color: ${(prop)=>prop.theme === 'light' ? 'black' : "white"};
     width: 100%;
-   height: 100vh;
+   height: 120vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   
 
     flex-wrap: wrap-reverse;
-    gap: 30px;
+    gap: 20px;
    
  
     h1{
@@ -94,10 +94,13 @@ export const Div = styled.div`
        
     }
 
-
+    @media screen and (max-width:420px){
+       gap: 0;
+        
+   }
    
    @media screen and (max-width:380px){
-        height: 120vh;
+        height: 137vh;
         padding-bottom: 30px;
         
    }
